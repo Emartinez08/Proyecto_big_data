@@ -18,8 +18,8 @@ if __name__ == "__main__":
     
     # Save the count results in summary.json
     summary_results = df_count.toJSON().collect()
-    #with open('results/summary.json', 'w') as file:
-        #json.dump(summary_results, file)
+    with open('results/summary.json', 'w') as file:
+        json.dump(summary_results, file)
 
     # SELECT * query to get all the data
     query_select_all = 'SELECT * FROM pokedex'

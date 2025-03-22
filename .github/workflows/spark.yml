@@ -14,7 +14,8 @@ jobs:
     - uses: actions/setup-python@v5
       with:
         python-version: '3.10'
-
+    - run: pip install pandas  # 🔹 Instalar pandas antes de Spark
+    
     - uses: actions/setup-java@v4
       with:
         java-version: '21'

@@ -68,13 +68,29 @@ url_results = st.text_input('URL results', value='https://raw.githubusercontent.
 if st.button("GET Spark Results"):
     get_spark_results(url_results)
 
+st.header("Query MongoDB Collection")
+
 if st.button("Query MongoDB Collection"):
     items = get_data()
     for item in items:
         item_data = json.loads(item["data"])
         st.write(f"{item_data['name']} : {item_data['type']}")
 
+st.header("Query PostgreSQL Table")
+
 if st.button("Query PostgreSQL Table"):
     df = conn.query('SELECT * FROM pokedex;', ttl="10m")
     for row in df.itertuples():
         st.write(row)
+
+st.header("Summary and Data Results")
+
+# Provide URL for the summary and data results (files must exist in your repo or be accessible)
+url_summary = st.text_input('Summary Results URL', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/main/results/summary.json')
+url_data = st.text_input('Data Results URL', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/main/results/data.json')
+
+if st.button("GET Summary Results"):
+    get_spark_results(url_summary)
+
+if st.button("GET Data Results"):
+    get_spark_results(url_data)

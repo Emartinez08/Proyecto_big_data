@@ -1,0 +1,814 @@
+[
+  {
+    "type": "{dark,steel}",
+    "count": 3
+  },
+  {
+    "type": "{ground}",
+    "count": 17
+  },
+  {
+    "type": "{normal,grass}",
+    "count": 2
+  },
+  {
+    "type": "{grass,steel}",
+    "count": 3
+  },
+  {
+    "type": "{bug,fire}",
+    "count": 2
+  },
+  {
+    "type": "{rock,ice}",
+    "count": 2
+  },
+  {
+    "type": "{bug,ground}",
+    "count": 1
+  },
+  {
+    "type": "{steel,fairy}",
+    "count": 3
+  },
+  {
+    "type": "{rock,fairy}",
+    "count": 2
+  },
+  {
+    "type": "{ghost,dragon}",
+    "count": 1
+  },
+  {
+    "type": "{grass,flying}",
+    "count": 6
+  },
+  {
+    "type": "{fighting,steel}",
+    "count": 1
+  },
+  {
+    "type": "{poison,fairy}",
+    "count": 1
+  },
+  {
+    "type": "{dark,psychic}",
+    "count": 2
+  },
+  {
+    "type": "{poison,psychic}",
+    "count": 1
+  },
+  {
+    "type": "{normal,psychic}",
+    "count": 5
+  },
+  {
+    "type": "{dark,fighting}",
+    "count": 2
+  },
+  {
+    "type": "{grass,ghost}",
+    "count": 5
+  },
+  {
+    "type": "{normal,dragon}",
+    "count": 1
+  },
+  {
+    "type": "{dark,normal}",
+    "count": 1
+  },
+  {
+    "type": "{grass,fighting}",
+    "count": 3
+  },
+  {
+    "type": "{electric,fighting}",
+    "count": 2
+  },
+  {
+    "type": "{steel,flying}",
+    "count": 2
+  },
+  {
+    "type": "{electric}",
+    "count": 35
+  },
+  {
+    "type": "{dragon,fighting}",
+    "count": 2
+  },
+  {
+    "type": "{ground,grass}",
+    "count": 2
+  },
+  {
+    "type": "{fire,ghost}",
+    "count": 3
+  },
+  {
+    "type": "{fairy,psychic}",
+    "count": 1
+  },
+  {
+    "type": "{electric,normal}",
+    "count": 2
+  },
+  {
+    "type": "{rock,dragon}",
+    "count": 2
+  },
+  {
+    "type": "{dark,grass}",
+    "count": 2
+  },
+  {
+    "type": "{fire,bug}",
+    "count": 2
+  },
+  {
+    "type": "{rock,water}",
+    "count": 6
+  },
+  {
+    "type": "{ghost}",
+    "count": 16
+  },
+  {
+    "type": "{bug,electric}",
+    "count": 4
+  },
+  {
+    "type": "{ground,electric}",
+    "count": 1
+  },
+  {
+    "type": "{normal,fighting}",
+    "count": 2
+  },
+  {
+    "type": "{flying,steel}",
+    "count": 1
+  },
+  {
+    "type": "{fire,poison}",
+    "count": 1
+  },
+  {
+    "type": "{water,dragon}",
+    "count": 4
+  },
+  {
+    "type": "{dark,flying}",
+    "count": 6
+  },
+  {
+    "type": "{ground,dark}",
+    "count": 3
+  },
+  {
+    "type": "{grass,fairy}",
+    "count": 5
+  },
+  {
+    "type": "{normal,fairy}",
+    "count": 4
+  },
+  {
+    "type": "{steel,ground}",
+    "count": 1
+  },
+  {
+    "type": "{ice}",
+    "count": 16
+  },
+  {
+    "type": "{fighting,flying}",
+    "count": 1
+  },
+  {
+    "type": "{steel,psychic}",
+    "count": 7
+  },
+  {
+    "type": "{ghost,dark}",
+    "count": 1
+  },
+  {
+    "type": "{fighting,ghost}",
+    "count": 2
+  },
+  {
+    "type": "{flying,fighting}",
+    "count": 1
+  },
+  {
+    "type": "{electric,dark}",
+    "count": 1
+  },
+  {
+    "type": "{bug,ghost}",
+    "count": 1
+  },
+  {
+    "type": "{normal}",
+    "count": 75
+  },
+  {
+    "type": "{dragon,water}",
+    "count": 1
+  },
+  {
+    "type": "{water,psychic}",
+    "count": 6
+  },
+  {
+    "type": "{water,bug}",
+    "count": 2
+  },
+  {
+    "type": "{poison,bug}",
+    "count": 1
+  },
+  {
+    "type": "{psychic,flying}",
+    "count": 6
+  },
+  {
+    "type": "{grass,poison}",
+    "count": 14
+  },
+  {
+    "type": "{dark,fire}",
+    "count": 3
+  },
+  {
+    "type": "{ground,dragon}",
+    "count": 2
+  },
+  {
+    "type": "{dark,ground}",
+    "count": 1
+  },
+  {
+    "type": "{water,grass}",
+    "count": 3
+  },
+  {
+    "type": "{dragon,ground}",
+    "count": 4
+  },
+  {
+    "type": "{fire,steel}",
+    "count": 1
+  },
+  {
+    "type": "{dark}",
+    "count": 13
+  },
+  {
+    "type": "{bug,rock}",
+    "count": 4
+  },
+  {
+    "type": "{dragon,ice}",
+    "count": 4
+  },
+  {
+    "type": "{ground,normal}",
+    "count": 1
+  },
+  {
+    "type": "{poison,normal}",
+    "count": 2
+  },
+  {
+    "type": "{ground,rock}",
+    "count": 3
+  },
+  {
+    "type": "{poison,water}",
+    "count": 3
+  },
+  {
+    "type": "{steel,ghost}",
+    "count": 4
+  },
+  {
+    "type": "{fighting,dragon}",
+    "count": 1
+  },
+  {
+    "type": "{ghost,poison}",
+    "count": 3
+  },
+  {
+    "type": "{rock,bug}",
+    "count": 2
+  },
+  {
+    "type": "{psychic,grass}",
+    "count": 2
+  },
+  {
+    "type": "{rock,steel}",
+    "count": 4
+  },
+  {
+    "type": "{fire,fighting}",
+    "count": 6
+  },
+  {
+    "type": "{fairy,fighting}",
+    "count": 1
+  },
+  {
+    "type": "{ground,steel}",
+    "count": 2
+  },
+  {
+    "type": "{dark,ice}",
+    "count": 3
+  },
+  {
+    "type": "{psychic,fire}",
+    "count": 1
+  },
+  {
+    "type": "{steel,fighting}",
+    "count": 1
+  },
+  {
+    "type": "{grass,ice}",
+    "count": 2
+  },
+  {
+    "type": "{rock,poison}",
+    "count": 3
+  },
+  {
+    "type": "{dark,fairy}",
+    "count": 3
+  },
+  {
+    "type": "{ghost,flying}",
+    "count": 2
+  },
+  {
+    "type": "{grass}",
+    "count": 47
+  },
+  {
+    "type": "{fire,ground}",
+    "count": 2
+  },
+  {
+    "type": "{fire,water}",
+    "count": 1
+  },
+  {
+    "type": "{dragon,normal}",
+    "count": 1
+  },
+  {
+    "type": "{ice,ground}",
+    "count": 3
+  },
+  {
+    "type": "{water,steel}",
+    "count": 1
+  },
+  {
+    "type": "{ghost,fire}",
+    "count": 3
+  },
+  {
+    "type": "{water,ice}",
+    "count": 4
+  },
+  {
+    "type": "{ice,flying}",
+    "count": 2
+  },
+  {
+    "type": "{fighting,ice}",
+    "count": 1
+  },
+  {
+    "type": "{ice,ghost}",
+    "count": 1
+  },
+  {
+    "type": "{fire,psychic}",
+    "count": 2
+  },
+  {
+    "type": "{rock}",
+    "count": 17
+  },
+  {
+    "type": "{water,rock}",
+    "count": 5
+  },
+  {
+    "type": "{psychic,ghost}",
+    "count": 2
+  },
+  {
+    "type": "{dragon,flying}",
+    "count": 4
+  },
+  {
+    "type": "{steel,rock}",
+    "count": 3
+  },
+  {
+    "type": "{ghost,ground}",
+    "count": 2
+  },
+  {
+    "type": "{bug,fighting}",
+    "count": 4
+  },
+  {
+    "type": "{rock,electric}",
+    "count": 1
+  },
+  {
+    "type": "{bug,fairy}",
+    "count": 2
+  },
+  {
+    "type": "{electric,dragon}",
+    "count": 3
+  },
+  {
+    "type": "{ice,psychic}",
+    "count": 3
+  },
+  {
+    "type": "{psychic,steel}",
+    "count": 1
+  },
+  {
+    "type": "{bug,flying}",
+    "count": 13
+  },
+  {
+    "type": "{poison}",
+    "count": 16
+  },
+  {
+    "type": "{poison,ground}",
+    "count": 3
+  },
+  {
+    "type": "{fighting}",
+    "count": 28
+  },
+  {
+    "type": "{rock,dark}",
+    "count": 1
+  },
+  {
+    "type": "{electric,ice}",
+    "count": 1
+  },
+  {
+    "type": "{dark,ghost}",
+    "count": 1
+  },
+  {
+    "type": "{grass,normal}",
+    "count": 3
+  },
+  {
+    "type": "{flying,dark}",
+    "count": 1
+  },
+  {
+    "type": "{poison,ghost}",
+    "count": 1
+  },
+  {
+    "type": "{fairy,steel}",
+    "count": 3
+  },
+  {
+    "type": "{poison,dark}",
+    "count": 3
+  },
+  {
+    "type": "{fighting,poison}",
+    "count": 1
+  },
+  {
+    "type": "{normal,water}",
+    "count": 1
+  },
+  {
+    "type": "{water,flying}",
+    "count": 7
+  },
+  {
+    "type": "{dragon,electric}",
+    "count": 1
+  },
+  {
+    "type": "{grass,dragon}",
+    "count": 5
+  },
+  {
+    "type": "{flying,water}",
+    "count": 1
+  },
+  {
+    "type": "{water,poison}",
+    "count": 3
+  },
+  {
+    "type": "{grass,fire}",
+    "count": 1
+  },
+  {
+    "type": "{poison,fighting}",
+    "count": 3
+  },
+  {
+    "type": "{psychic,fairy}",
+    "count": 7
+  },
+  {
+    "type": "{water,electric}",
+    "count": 2
+  },
+  {
+    "type": "{electric,ghost}",
+    "count": 1
+  },
+  {
+    "type": "{poison,dragon}",
+    "count": 3
+  },
+  {
+    "type": "{ground,ghost}",
+    "count": 3
+  },
+  {
+    "type": "{fire}",
+    "count": 36
+  },
+  {
+    "type": "{ground,fighting}",
+    "count": 1
+  },
+  {
+    "type": "{poison,fire}",
+    "count": 2
+  },
+  {
+    "type": "{electric,poison}",
+    "count": 2
+  },
+  {
+    "type": "{dragon,fire}",
+    "count": 1
+  },
+  {
+    "type": "{psychic}",
+    "count": 39
+  },
+  {
+    "type": "{rock,flying}",
+    "count": 4
+  },
+  {
+    "type": "{water,fairy}",
+    "count": 4
+  },
+  {
+    "type": "{bug,dark}",
+    "count": 1
+  },
+  {
+    "type": "{fairy}",
+    "count": 21
+  },
+  {
+    "type": "{grass,psychic}",
+    "count": 3
+  },
+  {
+    "type": "{water}",
+    "count": 74
+  },
+  {
+    "type": "{ground,flying}",
+    "count": 3
+  },
+  {
+    "type": "{grass,ground}",
+    "count": 1
+  },
+  {
+    "type": "{bug,poison}",
+    "count": 11
+  },
+  {
+    "type": "{water,fighting}",
+    "count": 3
+  },
+  {
+    "type": "{electric,steel}",
+    "count": 4
+  },
+  {
+    "type": "{dragon}",
+    "count": 13
+  },
+  {
+    "type": "{water,dark}",
+    "count": 4
+  },
+  {
+    "type": "{bug,psychic}",
+    "count": 3
+  },
+  {
+    "type": "{electric,ground}",
+    "count": 1
+  },
+  {
+    "type": "{grass,dark}",
+    "count": 5
+  },
+  {
+    "type": "{rock,grass}",
+    "count": 2
+  },
+  {
+    "type": "{dark,poison}",
+    "count": 1
+  },
+  {
+    "type": "{rock,ground}",
+    "count": 6
+  },
+  {
+    "type": "{fairy,flying}",
+    "count": 3
+  },
+  {
+    "type": "{dark,dragon}",
+    "count": 4
+  },
+  {
+    "type": "{normal,flying}",
+    "count": 27
+  },
+  {
+    "type": "{ghost,grass}",
+    "count": 5
+  },
+  {
+    "type": "{water,ghost}",
+    "count": 3
+  },
+  {
+    "type": "{flying,dragon}",
+    "count": 2
+  },
+  {
+    "type": "{fire,dark}",
+    "count": 1
+  },
+  {
+    "type": "{fighting,dark}",
+    "count": 2
+  },
+  {
+    "type": "{rock,psychic}",
+    "count": 3
+  },
+  {
+    "type": "{flying}",
+    "count": 3
+  },
+  {
+    "type": "{dragon,dark}",
+    "count": 1
+  },
+  {
+    "type": "{bug,water}",
+    "count": 3
+  },
+  {
+    "type": "{steel,poison}",
+    "count": 2
+  },
+  {
+    "type": "{fire,flying}",
+    "count": 6
+  },
+  {
+    "type": "{bug,grass}",
+    "count": 6
+  },
+  {
+    "type": "{bug,steel}",
+    "count": 5
+  },
+  {
+    "type": "{bug}",
+    "count": 23
+  },
+  {
+    "type": "{poison,flying}",
+    "count": 3
+  },
+  {
+    "type": "{ice,water}",
+    "count": 4
+  },
+  {
+    "type": "{fire,normal}",
+    "count": 2
+  },
+  {
+    "type": "{electric,fairy}",
+    "count": 2
+  },
+  {
+    "type": "{ground,psychic}",
+    "count": 2
+  },
+  {
+    "type": "{fire,rock}",
+    "count": 1
+  },
+  {
+    "type": "{normal,ground}",
+    "count": 1
+  },
+  {
+    "type": "{ice,bug}",
+    "count": 2
+  },
+  {
+    "type": "{steel,dragon}",
+    "count": 3
+  },
+  {
+    "type": "{rock,fire}",
+    "count": 2
+  },
+  {
+    "type": "{psychic,normal}",
+    "count": 1
+  },
+  {
+    "type": "{ghost,fairy}",
+    "count": 2
+  },
+  {
+    "type": "{electric,flying}",
+    "count": 5
+  },
+  {
+    "type": "{fighting,psychic}",
+    "count": 2
+  },
+  {
+    "type": "{water,ground}",
+    "count": 9
+  },
+  {
+    "type": "{dragon,ghost}",
+    "count": 3
+  },
+  {
+    "type": "{fighting,electric}",
+    "count": 1
+  },
+  {
+    "type": "{psychic,fighting}",
+    "count": 1
+  },
+  {
+    "type": "{rock,fighting}",
+    "count": 1
+  },
+  {
+    "type": "{steel}",
+    "count": 10
+  },
+  {
+    "type": "{dragon,psychic}",
+    "count": 2
+  },
+  {
+    "type": "{fire,dragon}",
+    "count": 2
+  }
+]

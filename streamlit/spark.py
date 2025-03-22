@@ -54,19 +54,14 @@ st.header("Spark-submit Job")
 github_user  = st.text_input('Github user', value='Emartinez08')
 github_repo  = st.text_input('Github repo', value='Proyecto_big_data')
 spark_job    = st.text_input('Spark job', value='spark')
-github_token = st.text_input('Github token', value='***', type='password')
-code_url     = st.text_input('Code URL', value='')
+github_token = st.text_input('Github token', value='', type='password')
+code_url     = st.text_input('Code URL', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/refs/heads/main/spark-submit/Poquedex.py')
 dataset_url  = st.text_input('Dataset URL', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/refs/heads/main/csv/pokedex.csv')
 
 if st.button("POST Spark Submit"):
     post_spark_job(github_user, github_repo, spark_job, github_token, code_url, dataset_url)
 
-st.header("Spark-submit Results")
 
-url_results = st.text_input('URL results', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/main/results.json')
-
-if st.button("GET Spark Results"):
-    get_spark_results(url_results)
 
 st.header("Query MongoDB Collection")
 
@@ -87,10 +82,16 @@ st.header("Summary and Data Results")
 
 # Provide URL for the summary and data results (files must exist in your repo or be accessible)
 url_summary = st.text_input('Summary Results URL', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/main/results/summary.json')
-url_data = st.text_input('Data Results URL', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/main/results/data.json')
 
 if st.button("GET Summary Results"):
     get_spark_results(url_summary)
 
+url_data = st.text_input('Data Results URL', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/main/results/data.json')
+
 if st.button("GET Data Results"):
     get_spark_results(url_data)
+
+url_fast_pokemon = st.text_input('URL results', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/main/fast_pokemon.json')
+
+if st.button("GET Fast_pokemon Results"):
+    get_spark_results(url_fast_pokemon)

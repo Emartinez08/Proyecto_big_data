@@ -18,8 +18,8 @@ if __name__ == "__main__":
     
     # Save the count results in summary.json
     summary_results = df_count.toJSON().collect()
-    with open('results/summary.json', 'w') as file:
-        json.dump(summary_results, file)
+    #with open('results/summary.json', 'w') as file:
+        #json.dump(summary_results, file)
 
     # SELECT * query to get all the data
     query_select_all = 'SELECT * FROM pokedex'
@@ -30,8 +30,8 @@ if __name__ == "__main__":
     df_all_data.write.mode("overwrite").json("results")
 
     # Write the SELECT * results to data.json
-    with open('results/data.json', 'w') as file:
-        json.dump(all_data_results, file)
+    #with open('results/data.json', 'w') as file:
+        #json.dump(all_data_results, file)
 
     # Additional queries for strong and fast Pokémon
     query_strong_pokemon = """SELECT name, type, hp, attack FROM pokedex WHERE attack > 100 ORDER BY attack DESC"""
@@ -45,7 +45,7 @@ if __name__ == "__main__":
     results = df_fast_pokemon.toJSON().collect()
     df_fast_pokemon.write.mode("overwrite").json("results")
     
-    with open('results/data.json', 'w') as file:
-        json.dump(results, file)
+    #with open('results/data.json', 'w') as file:
+        #json.dump(results, file)
     
     spark.stop()

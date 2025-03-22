@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 import os
 import json
-
+import time
 if __name__ == "__main__":
     spark = SparkSession.builder.appName("pokedex").getOrCreate()
 
@@ -44,4 +44,8 @@ if __name__ == "__main__":
     with open("results/fast_pokemon.json", "w") as file:
         json.dump(fast_pokemon_results, file, indent=2)
     
+    update_time = str(time.time())
+    with open("results/update_time.txt", "w") as file:
+        file.write(update_time + "\n")
+        
     spark.stop()

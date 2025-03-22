@@ -42,6 +42,6 @@ jobs:
       run: |
         git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
         git config --global user.email "e_martinez08@outlook.com"
-        git add results
+        git add results/summary.json results/data.json
         git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
         git push

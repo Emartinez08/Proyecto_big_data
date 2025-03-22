@@ -1,51 +1,47 @@
 from pyspark.sql import SparkSession
+import os
 import json
 
 if __name__ == "__main__":
-    spark = SparkSession\
-        .builder\
-        .appName("pokedex")\
-        .getOrCreate()
+    spark = SparkSession.builder.appName("pokedex").getOrCreate()
 
     print("Leyendo pokedex.csv ... ")
     path_pokedex = "pokedex.csv"
     df_pokedex = spark.read.csv(path_pokedex, header=True, inferSchema=True)
     df_pokedex.createOrReplaceTempView("pokedex")
     
-    # Get a summary (count of records by type)
+    # Crear carpeta de resultados
+    os.makedirs("results", exist_ok=True)
+
+    # 🔹 Resumen (conteo de Pokémon por tipo)
     query_count = 'SELECT type, COUNT(*) AS count FROM pokedex GROUP BY type'
     df_count = spark.sql(query_count)
     
-    # Save the count results in summary.json
-    summary_results = df_count.toJSON().collect()
-    with open('results/summary.json', 'w') as file:
-        json.dump(summary_results, file)
+    summary_results = df_count.toPandas().to_dict(orient="records")  # ✅ Convertir a lista de diccionarios
+    with open("results/summary.json", "w") as file:
+        json.dump(summary_results, file, indent=2)
 
-    # SELECT * query to get all the data
+    # 🔹 SELECT * FROM pokedex
     query_select_all = 'SELECT * FROM pokedex'
     df_all_data = spark.sql(query_select_all)
 
-    # Save all the data to a JSON file
-    all_data_results = df_all_data.toJSON().collect()
-    df_all_data.write.mode("overwrite").json("results")
+    all_data_results = df_all_data.toPandas().to_dict(orient="records")  # ✅ Convertir a JSON correctamente
+    with open("results/data.json", "w") as file:
+        json.dump(all_data_results, file, indent=2)
 
-    # Write the SELECT * results to data.json
-    with open('results/data.json', 'w') as file:
-        json.dump(all_data_results, file)
-
-    # Additional queries for strong and fast Pokémon
-    query_strong_pokemon = """SELECT name, type, hp, attack FROM pokedex WHERE attack > 100 ORDER BY attack DESC"""
+    # 🔹 Pokémon fuertes (ataque > 100)
+    query_strong_pokemon = "SELECT name, type, hp, attack FROM pokedex WHERE attack > 100 ORDER BY attack DESC"
     df_strong_pokemon = spark.sql(query_strong_pokemon)
     df_strong_pokemon.show(20)
-    
+
+    # 🔹 Pokémon rápidos (speed > 100)
     query_fast_pokemon = 'SELECT name, speed FROM pokedex WHERE speed > 100 ORDER BY speed DESC'
     df_fast_pokemon = spark.sql(query_fast_pokemon)
     df_fast_pokemon.show(20)
-    
-    results = df_fast_pokemon.toJSON().collect()
-    df_fast_pokemon.write.mode("overwrite").json("results")
-    
-    with open('results/data.json', 'w') as file:
-        json.dump(results, file)
+
+    # 🔹 Guardar Pokémon rápidos en otro archivo sin sobreescribir data.json
+    fast_pokemon_results = df_fast_pokemon.toPandas().to_dict(orient="records")
+    with open("results/fast_pokemon.json", "w") as file:
+        json.dump(fast_pokemon_results, file, indent=2)
     
     spark.stop()

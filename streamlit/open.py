@@ -5,7 +5,7 @@ def main():
     st.title("Pokedex CSV con Streamlit")
 
     # Cargar CSV desde una ruta específica
-    file_path = "/home/kike/Documents/Proyecto_big_data/csv/pokedex.csv"
+    file_path = "https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/refs/heads/main/csv/pokedex.csv"
 
     try:
         df = pd.read_csv(file_path)

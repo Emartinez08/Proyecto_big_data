@@ -1,97 +1,114 @@
 import streamlit as st
-import requests
 import pandas as pd
+import requests
 import json
-
 import pymongo
-# Initialize connection. Uses st.cache_resource to only run once.
+
+# Inicializar conexión con MongoDB
 @st.cache_resource
 def init_connection():
     return pymongo.MongoClient(**st.secrets["mongo"])
+
 client = init_connection()
 
-# Pull data from the collection. Uses st.cache_data to only rerun when the query changes or after 10 min.
 @st.cache_data(ttl=600)
 def get_data():
-    db = client.pokedex
-    items = db.pokemon.find()
-    items = list(items)  # make hashable for st.cache_data
-    return items
+    db = client.pokemon
+    items = db.pokedex.find()
+    return list(items)
 
-# Initialize connection.
+# Conexión con PostgreSQL
 conn = st.connection("postgresql", type="sql")
 
-def post_spark_job(user, repo, job, token, codeurl, dataseturl):
-    url = f'https://api.github.com/repos/{user}/{repo}/dispatches'
-    payload = {
-      "event_type": job,
-      "client_payload": {
-      "codeurl": codeurl,
-      "dataseturl": dataseturl
-      }
-    }
-    headers = {
-      'Authorization': f'Bearer {token}',
-      'Accept': 'application/vnd.github.v3+json',
-      'Content-type': 'application/json'
-    }
-    st.write(url)
-    st.write(payload)
-    st.write(headers)
-    response = requests.post(url, json=payload, headers=headers)
-    st.write(response)
+# Cargar CSV desde GitHub
+file_path = "https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/main/csv/pokedex.csv"
 
-def get_spark_results(url_results):
-    response = requests.get(url_results)
-    st.write(response)
-    if response.status_code == 200:
-        st.write(response.json())
+@st.cache_data
+def load_csv():
+    return pd.read_csv(file_path)
 
-st.title("Spark & Streamlit")
+df = load_csv()
 
-st.header("Spark-submit Job")
+# Configuración de pestañas
+tab1, tab2, tab3, tab4 = st.tabs(["📄 Pokedex CSV", "🔥 Spark Jobs", "📊 Resultados Spark", "📦 Bases de Datos"])
 
-github_user  = st.text_input('Github user', value='Emartinez08')
-github_repo  = st.text_input('Github repo', value='Proyecto_big_data')
-spark_job    = st.text_input('Spark job', value='spark')
-github_token = st.text_input('Github token', value='', type='password')
-code_url     = st.text_input('Code URL', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/refs/heads/main/spark-submit/Poquedex.py')
-dataset_url  = st.text_input('Dataset URL', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/refs/heads/main/csv/pokedex.csv')
+# 📄 Pestaña 1: Exploración del CSV con filtros
+with tab1:
+    st.title("📄 Pokedex CSV")
+    st.write("Filtra y explora los Pokémon en el dataset.")
 
-if st.button("POST Spark Submit"):
-    post_spark_job(github_user, github_repo, spark_job, github_token, code_url, dataset_url)
+    # Extraer y limpiar los tipos de Pokémon
+    df["type"] = df["type"].str.replace(r"[{}]", "", regex=True)
+    all_types = sorted(set(t.strip() for types in df["type"].dropna() for t in types.split(",")))
 
+    # Filtro por tipo (hasta 2)
+    selected_types = st.multiselect("Selecciona hasta 2 tipos de Pokémon", all_types, max_selections=2)
 
+    # Filtros por estadísticas
+    sort_option = st.selectbox("Ordenar por:", ["Ninguno", "Mayor Ataque", "Mayor Defensa"])
 
-st.header("Query MongoDB Collection")
+    # Aplicar filtros
+    filtered_df = df.copy()
 
-if st.button("Query MongoDB Collection"):
-    items = get_data()
-    for item in items:
-        item_data = json.loads(item["data"])
-        st.write(f"{item_data['name']} : {item_data['type']}")
+    if selected_types:
+        filtered_df = filtered_df[filtered_df["type"].apply(lambda t: all(stype in t for stype in selected_types))]
 
-st.header("Query PostgreSQL Table")
+    if sort_option == "Mayor Ataque":
+        filtered_df = filtered_df.sort_values(by="attack", ascending=False)
+    elif sort_option == "Mayor Defensa":
+        filtered_df = filtered_df.sort_values(by="defense", ascending=False)
 
-if st.button("Query PostgreSQL Table"):
-    df = conn.query('SELECT * FROM pokedex;', ttl="10m")
-    for row in df.itertuples():
-        st.write(row)
+    st.dataframe(filtered_df)
 
-st.header("Summary and Data Results")
+# 🔥 Pestaña 2: Spark Jobs
+with tab2:
+    st.title("🔥 Spark & Streamlit")
+    st.header("Ejecutar Spark-submit Job")
 
-# Provide URL for the summary and data results (files must exist in your repo or be accessible)
-url_summary = st.text_input('Summary Results URL', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/main/results/summary.json')
+    github_user  = st.text_input('Github user', value='Emartinez08')
+    github_repo  = st.text_input('Github repo', value='Proyecto_big_data')
+    spark_job    = st.text_input('Spark job', value='spark')
+    github_token = st.text_input('Github token', value='', type='password')
+    code_url     = st.text_input('Code URL', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/main/spark-submit/Poquedex.py')
+    dataset_url  = st.text_input('Dataset URL', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/main/csv/pokedex.csv')
 
-if st.button("GET Summary Results"):
-    get_spark_results(url_summary)
+    def post_spark_job():
+        url = f'https://api.github.com/repos/{github_user}/{github_repo}/dispatches'
+        payload = {"event_type": spark_job, "client_payload": {"codeurl": code_url, "dataseturl": dataset_url}}
+        headers = {'Authorization': f'Bearer {github_token}', 'Accept': 'application/vnd.github.v3+json', 'Content-type': 'application/json'}
+        response = requests.post(url, json=payload, headers=headers)
+        st.write(response)
 
-url_data = st.text_input('Data Results URL', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/main/results/data.json')
+    if st.button("POST Spark Submit"):
+        post_spark_job()
 
-if st.button("GET Data Results"):
-    get_spark_results(url_data)
+# 📊 Pestaña 3: Resultados Spark
+with tab3:
+    st.title("📊 Resultados Spark")
+    st.header("Ver resultados de Spark Job")
 
-url_fast_pokemon = st.text_input('URL results', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/main/fast_pokemon.json')
+    url_summary = st.text_input('Summary Results URL', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/main/results/summary.json')
+    if st.button("GET Summary Results"):
+        st.json(requests.get(url_summary).json())
 
-if st.button("GET Fast_pokemon Results"):
-    get_spark_results(url_fast_pokemon)
+    url_data = st.text_input('Data Results URL', value='https://raw.githubusercontent.com/Emartinez08/Proyecto_big_data/main/results/data.json')
+    if st.button("GET Data Results"):
+        st.json(requests.get(url_data).json())
+
+# 📦 Pestaña 4: Bases de Datos (MongoDB y PostgreSQL)
+with tab4:
+    st.title("📦 Bases de Datos")
+
+    # MongoDB
+    st.header("🔍 Consultar MongoDB")
+    if st.button("Consultar MongoDB"):
+        items = get_data()
+        for item in items:
+            item_data = json.loads(item["data"])
+            st.write(f"{item_data['name']} : {item_data['type']}")
+
+    # PostgreSQL
+    st.header("📊 Consultar PostgreSQL")
+    if st.button("Consultar PostgreSQL"):
+        df_sql = conn.query('SELECT * FROM pokemon;', ttl="10m")
+        st.dataframe(df_sql)
